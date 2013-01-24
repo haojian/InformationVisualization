@@ -16,18 +16,22 @@ PImage clickmap; // canvas for the clickmap
 float maxValue = 0; // variable storing the current maximum value in the gradientMap
 float minValue = 9999;
 int coordinationscale = 5;
+int coloroffset = 20;
 
 int screen_width = 854/coordinationscale;
 int screen_height = 480/coordinationscale;
 int webpageMaxWidth = screen_width;
 int webpageMaxHeight = screen_height;
 
+String datalogpath = "102201_1_37.tsv";
+String imgURL = "heatmap2.png";
+
 //this is the weight value for all the hot spot in the map.
 int[][] map = new int[1000][5000];
 HashMap hm = new HashMap();
 
 void extractData(){
-  String[] lines = loadStrings("102201_1_37.tsv");
+  String[] lines = loadStrings(datalogpath);
   long last_time = -1;
   int[] lastLoc = new int[2];
   for(int i = 0; i< lines.length; i++){
@@ -82,7 +86,7 @@ void extractData(){
 void setup(){
 
   extractData();
-  backgroundImage = loadImage("heatmap2.png");
+  backgroundImage = loadImage(imgURL);
   webpageMaxWidth = backgroundImage.width/coordinationscale;
   webpageMaxHeight = backgroundImage.height/coordinationscale;
   backgroundImage.resize(webpageMaxWidth, webpageMaxHeight);
@@ -113,8 +117,8 @@ void renderingData(){
       float gmValue = map[i][j];
 
       //println("gmValue: " + gmValue); 
-      int colIndex = (int) ((gmValue/maxValue)*(heatmapColors.pixels.length-1));      
-      int col = heatmapColors.pixels[colIndex];
+      int colIndex = (int) ((gmValue/maxValue)*(heatmapColors.pixels.length-1 - coloroffset));      
+      int col = heatmapColors.pixels[colIndex + coloroffset];
 
       heatmap.pixels[i + j *webpageMaxWidth] = col;
     }
