@@ -101,7 +101,7 @@ void setup(){
   heatmap = new PImage(webpageMaxWidth, webpageMaxHeight);
   heatmap.loadPixels();
   renderingData();
-  save("diagonal.png");
+  save("diagonal1.png");
 }
 
 void draw() {}
