@@ -23,8 +23,11 @@ int screen_height = 480/coordinationscale;
 int webpageMaxWidth = screen_width;
 int webpageMaxHeight = screen_height;
 
-String datalogpath = "102201_1_37.tsv";
-String imgURL = "heatmap2.png";
+//String datalogpath = "102201_1_37.tsv";
+//String imgURL = "heatmap2.png";
+
+String datalogpath = "102201_5_8.tsv";
+String imgURL = "heatmap1.png";
 
 //this is the weight value for all the hot spot in the map.
 int[][] map = new int[1000][5000];
