@@ -125,7 +125,8 @@ void setup(){
   
 
   
-  heatmapColors = loadImage("images/heatmapColors.png");
+  //heatmapColors = loadImage("images/heatmapColors.png");
+  heatmapColors = loadImage("images/heatmap_colors_green.png");
   heatmapColors.loadPixels();
 
   heatmap = new PImage(webpageMaxWidth, webpageMaxHeight);
